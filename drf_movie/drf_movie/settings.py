@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'movies',
     'djoser',
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
