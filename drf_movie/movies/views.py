@@ -12,13 +12,14 @@ from .serializers import (
     CreateRatingSerializer,
     ActorListSerializer,
     ActorDetailSerializer)
-from .service import get_client_ip, MovieFilter
+from .service import get_client_ip, MovieFilter, PaginationMovies
 
 
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     #     """output movie list"""
     filter_backends = (DjangoFilterBackend,)
     filterset_class = MovieFilter
+    pagination_class = PaginationMovies
 
     def get_queryset(self):
         movies = Movie.objects.filter(draft=False).annotate(
